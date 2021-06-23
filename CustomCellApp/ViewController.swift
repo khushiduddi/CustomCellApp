@@ -7,13 +7,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var exampleTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        exampleTableView.delegate = self
+        exampleTableView.dataSource = self
+        
+        self.registerTableViewCells()
     }
-
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell {
+                return cell
+        }
+        return UITableViewCell()
+    }
+    
+    private func registerTableViewCells() {
+        let textFieldCell = UINib(nibName: "CustomTableViewCell", bundle: nil)
+        self.exampleTableView.register(textFieldCell, forCellReuseIdentifier: "CustomTableViewCell")
+    }
 }
 
