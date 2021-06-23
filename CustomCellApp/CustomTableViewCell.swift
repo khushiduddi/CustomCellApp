@@ -11,7 +11,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textField: UITextField!
     
-    
+    var flag = false;
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,9 +24,7 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonAction(_ sender: Any) {
-        if let text = self.textField.text {
-                print(text)
-            }
+        self.textField.text = ""
     }
     
 }

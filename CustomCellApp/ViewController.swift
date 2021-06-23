@@ -11,6 +11,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var exampleTableView: UITableView!
     
+    var numberOfRows = 4
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         exampleTableView.delegate = self
@@ -20,7 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,6 +35,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func registerTableViewCells() {
         let textFieldCell = UINib(nibName: "CustomTableViewCell", bundle: nil)
         self.exampleTableView.register(textFieldCell, forCellReuseIdentifier: "CustomTableViewCell")
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            numberOfRows = numberOfRows - 1
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
     }
 }
 

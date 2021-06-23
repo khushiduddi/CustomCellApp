@@ -17,12 +17,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IgM-QR-iq0">
-                        <rect key="frame" x="15" y="15" width="404" height="59"/>
+                        <rect key="frame" x="15" y="15" width="334" height="59"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqT-dF-KVc">
-                        <rect key="frame" x="434" y="15" width="50" height="59"/>
+                        <rect key="frame" x="364" y="15" width="120" height="59"/>
                         <state key="normal" title="Post"/>
                         <connections>
                             <action selector="buttonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VQC-Xn-CAk"/>
@@ -30,10 +30,10 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="IgM-QR-iq0" secondAttribute="trailing" constant="80" id="7MS-ms-1rC"/>
+                    <constraint firstAttribute="trailing" secondItem="IgM-QR-iq0" secondAttribute="trailing" constant="150" id="7MS-ms-1rC"/>
                     <constraint firstItem="IgM-QR-iq0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="IPk-4d-twB"/>
-                    <constraint firstAttribute="trailing" secondItem="aqT-dF-KVc" secondAttribute="trailing" constant="15" id="QaI-z2-6WK"/>
                     <constraint firstItem="aqT-dF-KVc" firstAttribute="leading" secondItem="IgM-QR-iq0" secondAttribute="trailing" constant="15" id="fN6-Z9-MWp"/>
+                    <constraint firstAttribute="trailing" secondItem="aqT-dF-KVc" secondAttribute="trailing" constant="15" id="g4V-zf-Zni"/>
                     <constraint firstAttribute="bottom" secondItem="aqT-dF-KVc" secondAttribute="bottom" constant="15" id="jDq-we-HkI"/>
                     <constraint firstAttribute="bottom" secondItem="IgM-QR-iq0" secondAttribute="bottom" constant="15" id="k5J-LX-Aej"/>
                     <constraint firstItem="IgM-QR-iq0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="yad-t6-7eV"/>
