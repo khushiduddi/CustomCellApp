@@ -8,6 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    /*
+    func onClickedDelete(forRowAt indexPath: IndexPath) {
+        numberOfRows = numberOfRows - 1
+        exampleTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+    }
+ */
+    
 
     @IBOutlet weak var exampleTableView: UITableView!
     
@@ -15,10 +22,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        exampleTableView.allowsSelection = false
         exampleTableView.delegate = self
         exampleTableView.dataSource = self
         
         self.registerTableViewCells()
+        exampleTableView.tableFooterView = UIView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,5 +52,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
+    
 }
 

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,35 +17,59 @@
                 <rect key="frame" x="0.0" y="0.0" width="499" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IgM-QR-iq0">
-                        <rect key="frame" x="15" y="15" width="334" height="59"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqT-dF-KVc">
-                        <rect key="frame" x="364" y="15" width="120" height="59"/>
+                        <rect key="frame" x="393" y="15" width="31" height="59"/>
                         <state key="normal" title="Post"/>
                         <connections>
                             <action selector="buttonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VQC-Xn-CAk"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2c-zo-zRD">
+                        <rect key="frame" x="439" y="15" width="45" height="59"/>
+                        <state key="normal" title="Delete">
+                            <color key="titleColor" systemColor="systemRedColor"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lsU-5J-Wmc"/>
+                        </connections>
+                    </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SOB-6U-7S0">
+                        <rect key="frame" x="15" y="15" width="363" height="59"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="IgM-QR-iq0" secondAttribute="trailing" constant="150" id="7MS-ms-1rC"/>
-                    <constraint firstItem="IgM-QR-iq0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="IPk-4d-twB"/>
-                    <constraint firstItem="aqT-dF-KVc" firstAttribute="leading" secondItem="IgM-QR-iq0" secondAttribute="trailing" constant="15" id="fN6-Z9-MWp"/>
-                    <constraint firstAttribute="trailing" secondItem="aqT-dF-KVc" secondAttribute="trailing" constant="15" id="g4V-zf-Zni"/>
+                    <constraint firstItem="i2c-zo-zRD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Ntv-sq-oxG"/>
+                    <constraint firstItem="aqT-dF-KVc" firstAttribute="leading" secondItem="SOB-6U-7S0" secondAttribute="trailing" constant="15" id="VXU-5w-TwE"/>
+                    <constraint firstAttribute="bottom" secondItem="i2c-zo-zRD" secondAttribute="bottom" constant="15" id="biG-ox-PAG"/>
+                    <constraint firstItem="SOB-6U-7S0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="iH1-DR-4hb"/>
                     <constraint firstAttribute="bottom" secondItem="aqT-dF-KVc" secondAttribute="bottom" constant="15" id="jDq-we-HkI"/>
-                    <constraint firstAttribute="bottom" secondItem="IgM-QR-iq0" secondAttribute="bottom" constant="15" id="k5J-LX-Aej"/>
-                    <constraint firstItem="IgM-QR-iq0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="yad-t6-7eV"/>
+                    <constraint firstAttribute="bottom" secondItem="SOB-6U-7S0" secondAttribute="bottom" constant="15" id="nUN-aQ-RAE"/>
+                    <constraint firstItem="i2c-zo-zRD" firstAttribute="leading" secondItem="aqT-dF-KVc" secondAttribute="trailing" constant="15" id="nu9-zx-3rm"/>
+                    <constraint firstItem="SOB-6U-7S0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="oSb-t9-bIF"/>
+                    <constraint firstAttribute="trailing" secondItem="i2c-zo-zRD" secondAttribute="trailing" constant="15" id="pPs-5v-tLX"/>
                     <constraint firstItem="aqT-dF-KVc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="z8t-H3-BnA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="textField" destination="IgM-QR-iq0" id="nAQ-dQ-enZ"/>
+                <outlet property="textView" destination="SOB-6U-7S0" id="Tc2-8U-GiI"/>
             </connections>
             <point key="canvasLocation" x="157.24637681159422" y="79.352678571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

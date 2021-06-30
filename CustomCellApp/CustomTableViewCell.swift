@@ -9,7 +9,7 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textView: UITextView!
     
     var flag = false;
     override func awakeFromNib() {
@@ -24,7 +24,24 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonAction(_ sender: Any) {
-        self.textField.text = ""
+        self.textView.text = ""
     }
     
+    
+    @IBAction func deleteAction(_ sender: Any) {
+        self.textView.text = ""
+    }
+    
+/*
+    @IBAction func onClickedDelete(_ sender: Any) {
+        numberOfRows = numberOfRows - 1
+        exampleTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+    }
+ */
+    
 }
+/*
+protocol MyCellDelegate: AnyObject {
+    func onClickedDelete(forRowAt indexPath: IndexPath)
+}
+ */
