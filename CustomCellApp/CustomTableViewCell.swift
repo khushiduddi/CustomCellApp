@@ -11,37 +11,44 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textView: UITextView!
     
-    var flag = false;
+    @IBOutlet weak var wordCountLabel: UILabel!
+    var delegate: MyCellDelegate?
+    var name: String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.textView.text = name
+        let wordCount = textView.text.count
+        wordCountLabel.text = "\(wordCount)"
+    }
+    
+/*
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
+     }
+ */
     
     @IBAction func buttonAction(_ sender: Any) {
         self.textView.text = ""
+        wordCountLabel.text = "0"
     }
     
     
     @IBAction func deleteAction(_ sender: Any) {
         self.textView.text = ""
+        
+        delegate?.onClickDelete(row: self.tag)
     }
-    
-/*
-    @IBAction func onClickedDelete(_ sender: Any) {
-        numberOfRows = numberOfRows - 1
-        exampleTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-    }
- */
     
 }
-/*
+
 protocol MyCellDelegate: AnyObject {
-    func onClickedDelete(forRowAt indexPath: IndexPath)
+    func onClickDelete(row: Int)
 }
- */

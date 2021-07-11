@@ -34,19 +34,28 @@
                         </connections>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SOB-6U-7S0">
-                        <rect key="frame" x="15" y="15" width="363" height="59"/>
+                        <rect key="frame" x="15" y="15" width="329.5" height="59"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COp-CC-u86">
+                        <rect key="frame" x="359.5" y="15" width="18.5" height="59"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="COp-CC-u86" firstAttribute="leading" secondItem="SOB-6U-7S0" secondAttribute="trailing" constant="15" id="3hL-Sx-GZk"/>
+                    <constraint firstAttribute="bottom" secondItem="COp-CC-u86" secondAttribute="bottom" constant="15" id="NQP-Yu-7WZ"/>
                     <constraint firstItem="i2c-zo-zRD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Ntv-sq-oxG"/>
-                    <constraint firstItem="aqT-dF-KVc" firstAttribute="leading" secondItem="SOB-6U-7S0" secondAttribute="trailing" constant="15" id="VXU-5w-TwE"/>
                     <constraint firstAttribute="bottom" secondItem="i2c-zo-zRD" secondAttribute="bottom" constant="15" id="biG-ox-PAG"/>
                     <constraint firstItem="SOB-6U-7S0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="iH1-DR-4hb"/>
                     <constraint firstAttribute="bottom" secondItem="aqT-dF-KVc" secondAttribute="bottom" constant="15" id="jDq-we-HkI"/>
+                    <constraint firstItem="COp-CC-u86" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="jzf-jg-idm"/>
+                    <constraint firstItem="aqT-dF-KVc" firstAttribute="leading" secondItem="COp-CC-u86" secondAttribute="trailing" constant="15" id="mmf-Rb-z0a"/>
                     <constraint firstAttribute="bottom" secondItem="SOB-6U-7S0" secondAttribute="bottom" constant="15" id="nUN-aQ-RAE"/>
                     <constraint firstItem="i2c-zo-zRD" firstAttribute="leading" secondItem="aqT-dF-KVc" secondAttribute="trailing" constant="15" id="nu9-zx-3rm"/>
                     <constraint firstItem="SOB-6U-7S0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="oSb-t9-bIF"/>
@@ -57,6 +66,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="textView" destination="SOB-6U-7S0" id="Tc2-8U-GiI"/>
+                <outlet property="wordCountLabel" destination="COp-CC-u86" id="2of-2a-J1j"/>
             </connections>
             <point key="canvasLocation" x="157.24637681159422" y="79.352678571428569"/>
         </tableViewCell>
@@ -64,6 +74,9 @@
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
