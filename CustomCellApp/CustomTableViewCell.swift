@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class CustomTableViewCell: UITableViewCell, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
     
@@ -23,8 +23,37 @@ class CustomTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.textView.text = name
-        let wordCount = textView.text.count
-        wordCountLabel.text = "\(wordCount)"
+        
+        var count = 0
+        for char in textView.text {
+            if (char == " ") {
+                count = count + 1
+            }
+        }
+        if (count == 0 && textView.text.count > 0) {
+            count = 1
+        }
+        wordCountLabel.text = "\(count)"
+        
+        //let wordCount = textView.text.count
+        //wordCountLabel.text = "\(wordCount)"
+        
+        textView.delegate = self
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        //let currentWordCount = textView.text.count
+        //wordCountLabel.text = "\(currentWordCount)"
+        var count = 0
+        for char in textView.text {
+            if (char == " " || char == "\n" || char == "\t") {
+                count = count + 1
+            }
+        }
+        if (count == 0 && textView.text.count > 0) {
+            count = 1
+        }
+        wordCountLabel.text = "\(count)"
     }
     
 /*
