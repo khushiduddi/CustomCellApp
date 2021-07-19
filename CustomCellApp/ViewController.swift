@@ -11,7 +11,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var exampleTableView: UITableView!
     
-    private var animals = ["dog", "cat", "lion", "bear"]
+    private var animals = ["dogs are the best", "cat", "   \n", "bear"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

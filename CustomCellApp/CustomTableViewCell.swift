@@ -24,36 +24,46 @@ class CustomTableViewCell: UITableViewCell, UITextViewDelegate {
         super.layoutSubviews()
         self.textView.text = name
         
-        var count = 0
-        for char in textView.text {
-            if (char == " ") {
-                count = count + 1
+        var wordCount = 0
+        let separators = CharacterSet(charactersIn: " \n\t")
+        let wordComponents = textView.text.components(separatedBy: separators)
+        let letters = NSCharacterSet.letters
+        for word in wordComponents {
+            if(word.rangeOfCharacter(from: letters) != nil) {
+                wordCount = wordCount + 1
+                print(wordCount)
             }
         }
-        if (count == 0 && textView.text.count > 0) {
-            count = 1
-        }
-        wordCountLabel.text = "\(count)"
         
-        //let wordCount = textView.text.count
-        //wordCountLabel.text = "\(wordCount)"
+        wordCountLabel.text = "\(wordCount)"
         
         textView.delegate = self
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        //let currentWordCount = textView.text.count
-        //wordCountLabel.text = "\(currentWordCount)"
-        var count = 0
-        for char in textView.text {
-            if (char == " " || char == "\n" || char == "\t") {
-                count = count + 1
+        var wordCount = 0
+        let separators = CharacterSet(charactersIn: " \n\t")
+        let wordComponents = textView.text.components(separatedBy: separators)
+        let letters = NSCharacterSet.letters
+        for word in wordComponents {
+            if(word.rangeOfCharacter(from: letters) != nil) {
+                wordCount = wordCount + 1
+                print(wordCount)
             }
         }
-        if (count == 0 && textView.text.count > 0) {
-            count = 1
+        
+        wordCountLabel.text = "\(wordCount)"
+        
+        /* NOT USING COMPONENTS
+        for char in textView.text {
+            if (char == " " || char == "\n" || char == "\t") {
+            wordCount = wordCount + 1
+            }
         }
-        wordCountLabel.text = "\(count)"
+        if (wordCount == 0 && textView.text.count > 0) {
+            wordCount = 1
+        }
+ */
     }
     
 /*
